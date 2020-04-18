@@ -32,7 +32,7 @@ resource "aws_autoscaling_group" "ecs" {
   health_check_type         = "EC2"
   desired_capacity          = 1
   launch_configuration      = aws_launch_configuration.ecs.name
-  vpc_zone_identifier       = [aws_subnet.public_a.id,aws_subnet.public_b.id]
+  vpc_zone_identifier       = [aws_subnet.private_a.id,aws_subnet.private_b.id]
 }
 
 

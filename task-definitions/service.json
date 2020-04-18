@@ -1,0 +1,16 @@
+[
+  {
+    "name" : "nm",
+    "image": "nginx",
+    "portMappings": [
+      {
+        "hostPort": 0,
+        "protocol": "tcp",
+        "containerPort": 80
+      }
+    ],
+    "cpu": 128,
+    "memory": 128,
+    "essential": true
+  }
+]
