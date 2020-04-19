@@ -2,8 +2,6 @@ resource "aws_launch_configuration" "ecs" {
   name_prefix   = "ecst2"
   image_id      = data.aws_ami.ecs.id
   instance_type = "t2.micro"
-  key_name          = var.key_name
-#  associate_public_ip_address = true
   security_groups   = [aws_security_group.ecs_service.id]
   enable_monitoring = false
   iam_instance_profile = "ecsInstanceRole"
@@ -26,8 +24,8 @@ EOF
 
 resource "aws_autoscaling_group" "ecs" {
   name                      = "ecs"
-  max_size                  = 3
-  min_size                  = 0
+  max_size                  = 5
+  min_size                  = 1
   health_check_grace_period = 300
   health_check_type         = "EC2"
   desired_capacity          = 1
@@ -38,6 +36,16 @@ resource "aws_autoscaling_group" "ecs" {
 
 resource "aws_ecs_cluster" "nm" {
   name = "nm"
+
+  tags = {
+    Name = "NM"
+  }
+}
+
+
+resource "aws_cloudwatch_log_group" "nm" {
+  name = "nm-logs"
+
 
   tags = {
     Name = "NM"
