@@ -11,6 +11,14 @@
     ],
     "cpu": 256,
     "memory": 512,
-    "essential": true
+    "essential": true,
+    "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+            "awslogs-group": "nm-logs",
+            "awslogs-region": "us-east-1",
+            "awslogs-stream-prefix": "nm"
+        }
+    }
   }
 ]

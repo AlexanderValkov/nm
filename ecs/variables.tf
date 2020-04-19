@@ -13,11 +13,6 @@ variable "subnet" {
   description = "Subnets properties"
 }
 
-variable "key_name" {
-  type        = string
-  description = "Key Name"
-}
-
 variable "allow_from" {
   type        = string
   description = "Allow SSH from this range"

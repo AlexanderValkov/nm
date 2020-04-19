@@ -98,7 +98,6 @@ resource "aws_route_table_association" "public_b" {
 resource "aws_instance" "nat" {
   ami               = data.aws_ami.nat_amzn.image_id
   instance_type     = "t2.micro"
-  key_name          = var.key_name
   subnet_id         = aws_subnet.public_a.id
   vpc_security_group_ids = [aws_security_group.nat.id]
   source_dest_check = false
